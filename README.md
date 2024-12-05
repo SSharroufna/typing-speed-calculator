@@ -1,4 +1,5 @@
 # Typing Speed Calculator Game
+### Names: Sarah Sharroufna and Gia Boudreau
 ## Milestone 1: Description of Project
 The Typing Speed Game is an interactive app to help players improve their typing skills. The game will start by dropping random words from the top of the screen that players must type as quickly and accurately as possible before it reaches the bottom. 
 
