@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { WordList } from '../public/WordList.js'
+import StatsPanel from './StatsPanel'
 
 function App() {
   const [index, setIndex] = useState(0);
   const [inputValue, setInputValue] = useState('');
   const [score, setScore] = useState(0);
-  const [elapsedTime, setElapsedTime] = useState(0);
   const [lives, setLives] = useState(3);
+  const [elapsedTime, setElapsedTime] = useState(0);
+
 
   let letter = 0; // tracks the number of correct letters
 
   /** Timer */
-
   useEffect(() => {
-    if (index >= WordList.length) return; // stop the timer when the game is over
+        if (index >= WordList.length) return; // stop the timer when the game is over
+      
+        const timer = setInterval(() => {
+          if( lives == 0) return;
+          setElapsedTime((prevTime) => prevTime + 1);
+        }, 1000);
+      
+        return () => clearInterval(timer);
+      }, [lives]); 
   
-    const timer = setInterval(() => {
-      if( lives == 0) return;
-      setElapsedTime((prevTime) => prevTime + 1);
-    }, 1000);
-  
-    return () => clearInterval(timer);
-  }, [lives]); 
 
-  /** Reset Game when Game Over */
+      /** Reset Game when Game Over */
   function resetGame() {
     setIndex(0); // reset to the first word
     setInputValue(''); // clear input field
@@ -32,6 +34,7 @@ function App() {
     setElapsedTime(0); // reset elapsed time
     setLives(3); // reset lives to 3
   }
+
 
   /** Handle User Keyboard Input */
   const handleKeyDown = (event) => {
@@ -58,9 +61,7 @@ function App() {
           break; // stop further comparsions on mismatch
         }
     } 
-    // console.log(letter);
-    // console.log(currentWord.length);
-
+  
     console.log("Correct letters so far:", letter);
     console.log("Current word length:", currentWord.length);
 
@@ -81,19 +82,7 @@ function App() {
     } else {
       setInputValue(userInput);
     }
-    
-
-   
-
-
-    // if (event.key === 'Enter') {
-    //   console.log('Entered value:', event.key);
-    //   setIndex(index + 1);
-    //   setItem(WordList[index]);
-    //   setInputValue(''); 
-    // } else {
-    //   console.log('Key pressed:', event.key);
-    // }
+  
   }
 
   return (
@@ -101,6 +90,7 @@ function App() {
   {/** Scores and lives display */}
    
     <div className="lives-display">Lives: {lives}</div>
+    <div className="time-display">Time: {elapsedTime} seconds</div>
     <div className="score-display">Score: {score}</div>
 
   {/** Word game area */}
@@ -120,12 +110,10 @@ function App() {
       </div>
     </>
   ) : ( // if zero lives display game over and allow user to reset game
-    <>
-      <h1>Game Over</h1>
-      <h2>Final Score: {score}</h2>
-      <h2>Elapsed Time: {elapsedTime} seconds</h2>
+<>
+      <StatsPanel score={score} elapsedTime={elapsedTime} lives={lives}/>
       <button onClick={resetGame}>Restart Game</button>
-    </>
+      </>
   )}
 </div>
   );
