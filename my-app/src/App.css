@@ -24,7 +24,7 @@ body{
   border: 2px solid green;
   background-color: blue;
 } */
-.word-container{
+/* .word-container{
   max-width: 650px;
   margin: 5px;
   padding: 20px;
@@ -33,13 +33,13 @@ body{
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   background-color: white;
-}
+} */
 
 .word-display{
   user-select: none;
   font-size: 32px;
   font-weight: bold;
-  text-align: center;
+  /* text-align: center; */
   margin: 20px 0;
 }
 
@@ -75,7 +75,7 @@ body{
 }
 span {
   font-size: 20px;
-  user-select: none;
+  user-select: none; 
   cursor: text;
 }
 input.input-field {
