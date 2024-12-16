@@ -1,14 +1,39 @@
-# Typing Speed Calculator Game
-### Names: Sarah Sharroufna and Gia Boudreau
-## Milestone 1: Description of Project
-The Typing Speed Game is an interactive app to help players improve their typing skills. The game will start by dropping random words from the top of the screen that players must type as quickly and accurately as possible before it reaches the bottom. 
+# 🖱️ Typing Speed Calculator Game 🖱️  
+### By: Sarah Sharroufna & Gia Boudreau
 
-The player will have 3 attempts, after which it will show that the game calculates and displays their typing speed, words per minute (WPM), along with accuracy stats. 
-### Intended audience
-The intended audience ranges from those who are looking to improve typing speed and accuracy, students learning keyboard skills, to casual gamers. 
-### Inspiration
-We are inspired by the other existing typing game platforms that enhance and gamify learning important keyboard skills. 
-## Milestone 2: Process Blog
-Our first step was to focus on user interactions, checking the input against the current word from our word array. We implemented state changes for the number of lives remaining and score, and used the useEffect hook to track the elapsed time. Currently, the user loses a life if the letter they type doesn’t match the current letter in the word. The user can use backspace to fix their mistake, this does not effect their remaining lives. When all lives are lost, the screen displays "Game Over," along with their final score, elapsed time, and a button to restart the game. We also added logic to reset the game, restoring all states to their initial values.
+## Try it out: [Typing Speed Calculator Game](https://typing-speed-calculator-beta.vercel.app) 🚀
 
-Next, we plan to calculate accuracy and speed. After that, we'll explore animations featuring multiple randomly generated words moving across the screen. In this setup, the user will lose a life if the word disappears off the screen. If this proves unfeasible, we'll shift focus to styling the game with a theme, potentially ocean-themed. Or, focus on creating multiple difficulties, for example, longer word lengths or uncommon words.
+---
+
+## 📝 About
+
+The **Typing Speed Game** is a fun, interactive game built with **React.js** to help improve typing speed and accuracy. In the game, words fall from the top of the screen, and the player needs to type them before they reach the bottom. Players have **3 lives** to make it through, and at the end, the app calculates and shows their **Words Per Minute (WPM)** and **accuracy**. It’s simple, but effective.
+
+This project is a **viable product** but still a **work in progress**, so expect more features and improvements.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React.js**: The game is built using **React** for fast, dynamic user interfaces. React helps us efficiently manage the game state, handle user input, and dynamically update the UI without reloading the page.
+  
+  - **State Management**: We use React's `useState` to manage the player's score, remaining lives, and current word.
+  - **Effect Hook**: React’s `useEffect` hook tracks the time and updates the UI when the player progresses through the game.
+  
+- **CSS**: For styling, we're using regular **CSS** to create a clean, simple design. The focus is on functionality first, with future plans to add themes and styling improvements.
+ 
+---
+
+## 🛠️ How It Works
+
+- **Lives & Score**: Players lose a life if they type a letter incorrectly. **Backspace** lets them fix mistakes without losing a life.
+- **Game Over**: When all lives are lost, the game ends and shows the final score, typing speed (WPM), and elapsed time.
+
+---
+
+## 🚀 What's Next?
+
+We’re still working on improving the game! Some of the next features include:
+- **Visual Themes**: Adding themes (like space, ocean, etc.) to make the game more visually engaging.
+- **Multiple Difficulty Levels**: Let players choose longer or harder words for more of a challenge.
+- **Leaderboards**: Allow users to compete and compare their scores.
